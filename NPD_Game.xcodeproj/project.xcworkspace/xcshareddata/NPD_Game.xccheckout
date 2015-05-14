@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>03482A0D-7F85-469A-AB44-9D98EE9FD27C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>NPD_Game</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B09CBDB5A786D748D8E771A9CB37BA4A6702C918</key>
+		<string>https://github.com/yaorugang/NPD_Game.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>NPD_Game.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B09CBDB5A786D748D8E771A9CB37BA4A6702C918</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/yaorugang/NPD_Game.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B09CBDB5A786D748D8E771A9CB37BA4A6702C918</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B09CBDB5A786D748D8E771A9CB37BA4A6702C918</string>
+			<key>IDESourceControlWCCName</key>
+			<string>NPD_Game</string>
+		</dict>
+	</array>
+</dict>
+</plist>
