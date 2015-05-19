@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F2C8FA51B0B18C00087CD76 /* BreakoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2C8FA41B0B18C00087CD76 /* BreakoutViewController.swift */; };
+		5F2C8FA71B0B19CC0087CD76 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2C8FA61B0B19CC0087CD76 /* GameScene.swift */; };
+		5F2C8FA91B0B1A280087CD76 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5F2C8FA81B0B1A280087CD76 /* GameScene.sks */; };
 		5F2E79971AA5DBFF00811461 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2E79961AA5DBFF00811461 /* PopupViewController.swift */; };
 		5F3440841A8713E4006B2B64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F3440821A8713E4006B2B64 /* Main.storyboard */; };
 		5F3440861A87148A006B2B64 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3440851A87148A006B2B64 /* MenuViewController.swift */; };
@@ -35,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5F2C8FA41B0B18C00087CD76 /* BreakoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreakoutViewController.swift; sourceTree = "<group>"; };
+		5F2C8FA61B0B19CC0087CD76 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		5F2C8FA81B0B1A280087CD76 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		5F2E79961AA5DBFF00811461 /* PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		5F3440831A8713E4006B2B64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = NPD_Game/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5F3440851A87148A006B2B64 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +80,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F2C8F9E1B0B18110087CD76 /* DriftBallGame */ = {
+			isa = PBXGroup;
+			children = (
+				5FD827981B007C7000CDB00D /* DriftBallViewController.swift */,
+			);
+			name = DriftBallGame;
+			sourceTree = "<group>";
+		};
+		5F2C8F9F1B0B18300087CD76 /* ColorGame */ = {
+			isa = PBXGroup;
+			children = (
+				8B9776381AEE17EE00F1E4C7 /* ColorGameViewController.swift */,
+			);
+			name = ColorGame;
+			sourceTree = "<group>";
+		};
+		5F2C8FA01B0B18420087CD76 /* BalloonGame */ = {
+			isa = PBXGroup;
+			children = (
+				5F4E4B701AB1B0E100D826F8 /* BalloonGameViewController.swift */,
+				5F8FE6B71AB1C67A005E7F26 /* BalloonLevelViewController.swift */,
+			);
+			name = BalloonGame;
+			sourceTree = "<group>";
+		};
+		5F2C8FA11B0B185E0087CD76 /* PipeGame */ = {
+			isa = PBXGroup;
+			children = (
+				5F3440871A8729B7006B2B64 /* PipeGameViewController.swift */,
+			);
+			name = PipeGame;
+			sourceTree = "<group>";
+		};
+		5F2C8FA21B0B186E0087CD76 /* PokerGame */ = {
+			isa = PBXGroup;
+			children = (
+				5F9592D51ADFB7C400461C6D /* PokerGameViewController.swift */,
+			);
+			name = PokerGame;
+			sourceTree = "<group>";
+		};
+		5F2C8FA31B0B18960087CD76 /* BreakoutGame */ = {
+			isa = PBXGroup;
+			children = (
+				5F2C8FA41B0B18C00087CD76 /* BreakoutViewController.swift */,
+				5F2C8FA61B0B19CC0087CD76 /* GameScene.swift */,
+				5F2C8FA81B0B1A280087CD76 /* GameScene.sks */,
+			);
+			name = BreakoutGame;
+			sourceTree = "<group>";
+		};
 		5F820DCC1A84C57600D3EE57 = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +152,12 @@
 		5F820DD71A84C57600D3EE57 /* NPD_Game */ = {
 			isa = PBXGroup;
 			children = (
+				5F2C8FA31B0B18960087CD76 /* BreakoutGame */,
+				5F2C8FA21B0B186E0087CD76 /* PokerGame */,
+				5F2C8FA11B0B185E0087CD76 /* PipeGame */,
+				5F2C8FA01B0B18420087CD76 /* BalloonGame */,
+				5F2C8F9F1B0B18300087CD76 /* ColorGame */,
+				5F2C8F9E1B0B18110087CD76 /* DriftBallGame */,
 				5F820DDA1A84C57600D3EE57 /* AppDelegate.swift */,
 				5F820DDC1A84C57600D3EE57 /* ViewController.swift */,
 				5F3440821A8713E4006B2B64 /* Main.storyboard */,
@@ -102,14 +165,8 @@
 				5F820DE31A84C57600D3EE57 /* LaunchScreen.xib */,
 				5F820DD81A84C57600D3EE57 /* Supporting Files */,
 				5F3440851A87148A006B2B64 /* MenuViewController.swift */,
-				5F3440871A8729B7006B2B64 /* PipeGameViewController.swift */,
 				5F3B56241A8E1A5500F74FDD /* GameoverViewController.swift */,
 				5F2E79961AA5DBFF00811461 /* PopupViewController.swift */,
-				5F4E4B701AB1B0E100D826F8 /* BalloonGameViewController.swift */,
-				5F8FE6B71AB1C67A005E7F26 /* BalloonLevelViewController.swift */,
-				5F9592D51ADFB7C400461C6D /* PokerGameViewController.swift */,
-				8B9776381AEE17EE00F1E4C7 /* ColorGameViewController.swift */,
-				5FD827981B007C7000CDB00D /* DriftBallViewController.swift */,
 			);
 			path = NPD_Game;
 			sourceTree = "<group>";
@@ -220,6 +277,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F2C8FA91B0B1A280087CD76 /* GameScene.sks in Resources */,
 				5F3440841A8713E4006B2B64 /* Main.storyboard in Resources */,
 				5F820DE51A84C57600D3EE57 /* LaunchScreen.xib in Resources */,
 				5F820DE21A84C57600D3EE57 /* Images.xcassets in Resources */,
@@ -243,10 +301,12 @@
 				8B9776391AEE17EE00F1E4C7 /* ColorGameViewController.swift in Sources */,
 				5F820DDD1A84C57600D3EE57 /* ViewController.swift in Sources */,
 				5F3440861A87148A006B2B64 /* MenuViewController.swift in Sources */,
+				5F2C8FA51B0B18C00087CD76 /* BreakoutViewController.swift in Sources */,
 				5F8FE6B81AB1C67A005E7F26 /* BalloonLevelViewController.swift in Sources */,
 				5F4E4B711AB1B0E100D826F8 /* BalloonGameViewController.swift in Sources */,
 				5F3B56251A8E1A5500F74FDD /* GameoverViewController.swift in Sources */,
 				5F3440881A8729B7006B2B64 /* PipeGameViewController.swift in Sources */,
+				5F2C8FA71B0B19CC0087CD76 /* GameScene.swift in Sources */,
 				5F9592D61ADFB7C400461C6D /* PokerGameViewController.swift in Sources */,
 				5F820DDB1A84C57600D3EE57 /* AppDelegate.swift in Sources */,
 				5FD827991B007C7000CDB00D /* DriftBallViewController.swift in Sources */,
