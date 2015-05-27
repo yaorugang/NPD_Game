@@ -20,7 +20,7 @@ class DriftBallViewController: UIViewController
     var point_x: CGFloat?
     var point_y: CGFloat?
     var velocity: CGFloat?
-    var timeLimit: CGFloat = 20 // seconds
+    var timeLimit: Float = 20.0 // seconds
     var circleradius: CGFloat?
     var circlePath: CGMutablePathRef?
     let manager = CMMotionManager()
@@ -179,42 +179,50 @@ class DriftBallViewController: UIViewController
         // popup window
         if (successed)
         {
-            var popup = self.storyboard?.instantiateViewControllerWithIdentifier("PopupController") as! PopupViewController;
+            var popup = self.storyboard?.instantiateViewControllerWithIdentifier("NotificationController") as! NotificationViewController;
             self.presentViewController(popup, animated: false, completion: nil)
-            popup.showDriftBallNext(20.0)
+            
+            if (self.currentLevel < 5)  // has more level to play
+            {
+                popup.showDriftGameNextLevel(20.0)
+            }
+            else                        // no more level to play
+            {
+                popup.showDriftGameWin()
+            }
         }
         else
         {
-            var popup = self.storyboard?.instantiateViewControllerWithIdentifier("PopupController") as! PopupViewController;
+            var popup = self.storyboard?.instantiateViewControllerWithIdentifier("NotificationController") as! NotificationViewController;
             self.presentViewController(popup, animated: false, completion: nil)
-            popup.showDriftBallOver(20 - timeLimit)
+            popup.showDriftGameOver(20 - timeLimit)
         }
         
     }
     
-    @IBAction func unwindToResetDriftBall(segue: UIStoryboardSegue)
+    @IBAction func unwindDriftGameReset(segue: UIStoryboardSegue)
     {
         startGame(1)
     }
     
-    @IBAction func unwindToRetryDriftBall(segue: UIStoryboardSegue)
+    @IBAction func unwindDriftGameRetry(segue: UIStoryboardSegue)
     {
         startGame(currentLevel)
     }
     
-    @IBAction func unwindToNextDriftBall(segue: UIStoryboardSegue)
+    @IBAction func unwindDriftGameNextLevel(segue: UIStoryboardSegue)
     {
         if (self.currentLevel < 5)
         {
             startGame(currentLevel + 1)
         }
-        else
-        {
-            self.dismissViewControllerAnimated(false, completion: nil)  // no more level, quit the game.
-        }
+//        else
+//        {
+//            self.dismissViewControllerAnimated(false, completion: nil)  // no more level, quit the game.
+//        }
     }
 
-    @IBAction func unwindToQuitDriftBall(segue: UIStoryboardSegue)
+    @IBAction func unwindDriftGameQuit(segue: UIStoryboardSegue)
     {
         self.dismissViewControllerAnimated(false, completion: nil)
     }

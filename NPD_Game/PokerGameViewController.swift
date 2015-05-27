@@ -206,9 +206,17 @@ class PokerGameViewController: UIViewController
             }
             else
             {
-                var popup = self.storyboard?.instantiateViewControllerWithIdentifier("PopupController") as! PopupViewController;
+                var popup = self.storyboard?.instantiateViewControllerWithIdentifier("NotificationController") as! NotificationViewController;
                 self.presentViewController(popup, animated: false, completion: nil)
-                popup.showPokerNextLevel()
+                
+                if (currentLevel < 2)   // has more level to play
+                {
+                    popup.showPokerGameNextLevel()
+                }
+                else                    // no more level
+                {
+                    popup.showPokerGameWin()
+                }
             }
         }
         else                                    // process wrong guess
@@ -221,9 +229,9 @@ class PokerGameViewController: UIViewController
             }
             else
             {
-                var popup = self.storyboard?.instantiateViewControllerWithIdentifier("PopupController") as! PopupViewController;
+                var popup = self.storyboard?.instantiateViewControllerWithIdentifier("NotificationController") as! NotificationViewController;
                 self.presentViewController(popup, animated: false, completion: nil)
-                popup.showPokerReset()
+                popup.showPokerGameReset()
             }
         }
     }
@@ -244,12 +252,12 @@ class PokerGameViewController: UIViewController
     }
     
     /* restart game from leve 1, sublevel 1 */
-    @IBAction func unwindToResetGame(segue: UIStoryboardSegue)
+    @IBAction func unwindPokerGameReset(segue: UIStoryboardSegue)
     {
         startLevel0()
     }
 
-    @IBAction func unwindToPokerNextLevel(segue: UIStoryboardSegue)
+    @IBAction func unwindPokerGameNextLevel(segue: UIStoryboardSegue)
     {
         switch (currentLevel)
         {
@@ -258,9 +266,14 @@ class PokerGameViewController: UIViewController
         case 1:
             startLevel2()
         default:
-            self.dismissViewControllerAnimated(false, completion: nil)  // quit poker game
+             break
         }
         
+    }
+    
+    @IBAction func unwindPokerGameQuit(segue: UIStoryboardSegue)
+    {
+        self.dismissViewControllerAnimated(false, completion: nil)
     }
     
     override func didReceiveMemoryWarning()

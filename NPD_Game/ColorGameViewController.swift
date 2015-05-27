@@ -175,12 +175,12 @@ class ColorGameViewController: UIViewController
     {
         timer?.invalidate() // stop timer
         
-        var popup = self.storyboard?.instantiateViewControllerWithIdentifier("PopupController") as! PopupViewController;
+        var popup = self.storyboard?.instantiateViewControllerWithIdentifier("NotificationController") as! NotificationViewController;
         self.presentViewController(popup, animated: false, completion: nil)
         popup.showColorGameOver(currentScore)
     }
     
-    @IBAction func unwindToQuitColorGame(segue: UIStoryboardSegue)
+    @IBAction func unwindColorGameQuit(segue: UIStoryboardSegue)
     {
         self.dismissViewControllerAnimated(false, completion: nil)
     }

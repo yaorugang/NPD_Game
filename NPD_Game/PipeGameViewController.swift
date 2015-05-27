@@ -181,24 +181,24 @@ class PipeGameViewController: UIViewController
                     if (currentLevel < 3) // show next level view
                     {
                         
-                        var popup = self.storyboard?.instantiateViewControllerWithIdentifier("PopupController") as! PopupViewController;
+                        var popup = self.storyboard?.instantiateViewControllerWithIdentifier("NotificationController") as! NotificationViewController;
                         self.presentViewController(popup, animated: false, completion: nil)
-                        popup.showNextLevelMode()
+                        popup.showPipeGameNextLevel()
                     }
                     else // show win view
                     {
-                        var popup = self.storyboard?.instantiateViewControllerWithIdentifier("PopupController") as! PopupViewController;
+                        var popup = self.storyboard?.instantiateViewControllerWithIdentifier("NotificationController") as! NotificationViewController;
                         self.presentViewController(popup, animated: false, completion: nil)
-                        popup.showWinMode()
+                        popup.showPipeGameWin()
                     }
                     
                 }
                 else
                 {
-                    // show game over view and then return to the menu
-                    var gameover = self.storyboard?.instantiateViewControllerWithIdentifier("GameoverController") as! GameoverViewController
-                    self.presentViewController(gameover, animated: false, completion: nil)
-                    
+                    // show game over view
+                    var popup = self.storyboard?.instantiateViewControllerWithIdentifier("NotificationController") as! NotificationViewController
+                    self.presentViewController(popup, animated: false, completion: nil)
+                    popup.showPipeGameOver()
                 }
                 
                 mValidFinger = false
@@ -324,12 +324,12 @@ class PipeGameViewController: UIViewController
         startTimer()
     }
     
-    @IBAction func unwindToQuit(segue: UIStoryboardSegue)
+    @IBAction func unwindPipeGameQuit(segue: UIStoryboardSegue)
     {
         self.dismissViewControllerAnimated(false, completion: nil)
     }
     
-    @IBAction func unwindToNextLevel(segue: UIStoryboardSegue)
+    @IBAction func unwindPipeGameNextLevel(segue: UIStoryboardSegue)
     {
         if (currentLevel < 3)
         {

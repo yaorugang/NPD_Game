@@ -43,43 +43,43 @@ class BalloonLevelViewController: UIViewController
     @IBAction func openGameLevel1(sender: AnyObject)
     {
         var gameView = self.storyboard?.instantiateViewControllerWithIdentifier("BalloonGameController") as!  BalloonGameViewController
-        gameView.setGameLevel(1)
         self.presentViewController(gameView, animated: false, completion: nil)
+        gameView.startLevel1()
     }
     
     @IBAction func openGameLevel2(sender: AnyObject)
     {
         var gameView = self.storyboard?.instantiateViewControllerWithIdentifier("BalloonGameController") as!  BalloonGameViewController
-        gameView.setGameLevel(2)
         self.presentViewController(gameView, animated: false, completion: nil)
+        gameView.startLevel2()
     }
     
     @IBAction func openGameLevel3(sender: AnyObject)
     {
         var gameView = self.storyboard?.instantiateViewControllerWithIdentifier("BalloonGameController") as!  BalloonGameViewController
-        gameView.setGameLevel(3)
         self.presentViewController(gameView, animated: false, completion: nil)
+        gameView.startLevel3()
     }
     
     @IBAction func openGameLevel4(sender: AnyObject)
     {
         var gameView = self.storyboard?.instantiateViewControllerWithIdentifier("BalloonGameController") as!  BalloonGameViewController
-        gameView.setGameLevel(4)
         self.presentViewController(gameView, animated: false, completion: nil)
+        gameView.startLevel4()
     }
     
     @IBAction func openGameLevel5(sender: AnyObject)
     {
         var gameView = self.storyboard?.instantiateViewControllerWithIdentifier("BalloonGameController") as!  BalloonGameViewController
-        gameView.setGameLevel(5)
         self.presentViewController(gameView, animated: false, completion: nil)
+        gameView.startLevel5()
     }
     
     @IBAction func openGameLevel6(sender: AnyObject)
     {
         var gameView = self.storyboard?.instantiateViewControllerWithIdentifier("BalloonGameController") as!  BalloonGameViewController
-        gameView.setGameLevel(6)
         self.presentViewController(gameView, animated: false, completion: nil)
+        gameView.startLevel6()
     }
 
     /*

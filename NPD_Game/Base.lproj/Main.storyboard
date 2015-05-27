@@ -1,9 +1,80 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="XZp-vy-mrL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="XZp-vy-mrL">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
+        <!--Notification View Controller-->
+        <scene sceneID="cxY-oj-fMB">
+            <objects>
+                <viewController storyboardIdentifier="NotificationController" modalPresentationStyle="overCurrentContext" id="7xq-Yv-WdM" customClass="NotificationViewController" customModule="NPD_Game" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hQ8-aB-9GX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fKV-VK-gDK">
+                                <rect key="frame" x="46" y="331" width="229" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Retry" backgroundImage="buttonbg">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lNt-hm-eMb">
+                                <rect key="frame" x="46" y="401" width="229" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Next Level" backgroundImage="buttonbg">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bOO-nB-H6p">
+                                <rect key="frame" x="46" y="471" width="229" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Quit" backgroundImage="buttonbg">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vB8-ou-BIJ">
+                                <rect key="frame" x="16" y="20" width="288" height="214"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3Bd-Cj-EMf">
+                                <rect key="frame" x="46" y="265" width="229" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Reset" backgroundImage="buttonbg">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="mMessageLabel" destination="vB8-ou-BIJ" id="D3g-x5-waq"/>
+                        <outlet property="mNextLevelButton" destination="lNt-hm-eMb" id="Tar-zw-vIs"/>
+                        <outlet property="mQuitButton" destination="bOO-nB-H6p" id="uzl-Xo-Eh6"/>
+                        <outlet property="mResetButton" destination="3Bd-Cj-EMf" id="84a-Wx-acL"/>
+                        <outlet property="mRetryButton" destination="fKV-VK-gDK" id="c6t-mf-5la"/>
+                        <segue destination="wjy-YX-MGr" kind="unwind" identifier="unwindPipeGameQuit" unwindAction="unwindPipeGameQuit:" id="Bin-ix-XMh"/>
+                        <segue destination="wjy-YX-MGr" kind="unwind" identifier="unwindPipeGameNextLevel" unwindAction="unwindPipeGameNextLevel:" id="7Dt-kP-Iwz"/>
+                        <segue destination="wjy-YX-MGr" kind="unwind" identifier="unwindBalloonGameNextLevel" unwindAction="unwindBalloonGameNextLevel:" id="aP6-qE-jaN"/>
+                        <segue destination="wjy-YX-MGr" kind="unwind" identifier="unwindBalloonGameQuit" unwindAction="unwindBalloonGameQuit:" id="guV-gQ-ocM"/>
+                        <segue destination="wjy-YX-MGr" kind="unwind" identifier="unwindPokerGameReset" unwindAction="unwindPokerGameReset:" id="q7R-Bj-HfO"/>
+                        <segue destination="wjy-YX-MGr" kind="unwind" identifier="unwindPokerGameNextLevel" unwindAction="unwindPokerGameNextLevel:" id="1cM-Bw-n7C"/>
+                        <segue destination="wjy-YX-MGr" kind="unwind" identifier="unwindPokerGameQuit" unwindAction="unwindPokerGameQuit:" id="qcV-NZ-7xl"/>
+                        <segue destination="wjy-YX-MGr" kind="unwind" identifier="unwindColorGameQuit" unwindAction="unwindColorGameQuit:" id="gLj-0W-r7P"/>
+                        <segue destination="wjy-YX-MGr" kind="unwind" identifier="unwindDriftGameNextLevel" unwindAction="unwindDriftGameNextLevel:" id="WMI-kj-DZe"/>
+                        <segue destination="wjy-YX-MGr" kind="unwind" identifier="unwindDriftGameQuit" unwindAction="unwindDriftGameQuit:" id="gDh-Va-zYS"/>
+                        <segue destination="wjy-YX-MGr" kind="unwind" identifier="unwindDriftGameRetry" unwindAction="unwindDriftGameRetry:" id="z6h-Wf-yW6"/>
+                        <segue destination="wjy-YX-MGr" kind="unwind" identifier="unwindDriftGameReset" unwindAction="unwindDriftGameReset:" id="PbK-1A-YVp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wgU-Bt-VzK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="wjy-YX-MGr" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1161" y="495"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="oNp-aC-FbQ">
             <objects>
@@ -128,77 +199,6 @@
             </objects>
             <point key="canvasLocation" x="656" y="495"/>
         </scene>
-        <!--Popup View Controller-->
-        <scene sceneID="ZOJ-xe-bbm">
-            <objects>
-                <viewController storyboardIdentifier="PopupController" modalPresentationStyle="overCurrentContext" id="tga-05-dzc" customClass="PopupViewController" customModule="NPD_Game" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="GUl-hi-xOH">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kP0-s1-G3s" userLabel="NextLevel">
-                                <rect key="frame" x="47" y="148" width="227" height="148"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="nextlevel">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="t76-9A-lA3" userLabel="Quit">
-                                <rect key="frame" x="254" y="148" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="cancel">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="mCenter_btn" destination="kP0-s1-G3s" id="c8s-7e-gEq"/>
-                        <outlet property="mCorner_btn" destination="t76-9A-lA3" id="BQi-og-Qbp"/>
-                        <segue destination="JCb-1d-z2b" kind="unwind" identifier="popupUnwindToQuit" unwindAction="unwindToQuit:" id="Ba2-7C-9I2"/>
-                        <segue destination="JCb-1d-z2b" kind="unwind" identifier="popupUnwindToNextLevel" unwindAction="unwindToNextLevel:" id="5dD-ZK-P9p"/>
-                        <segue destination="JCb-1d-z2b" kind="unwind" identifier="unwindToBalloonNextLevel" unwindAction="unwindToBalloonNextLevel:" id="6oB-ym-wDG"/>
-                        <segue destination="JCb-1d-z2b" kind="unwind" identifier="unwindToQuitBalloon" unwindAction="unwindToQuitBalloon:" id="0uh-21-rmg"/>
-                        <segue destination="JCb-1d-z2b" kind="unwind" identifier="unwindToResetPoker" unwindAction="unwindToResetGame:" id="RtW-RS-Whr"/>
-                        <segue destination="JCb-1d-z2b" kind="unwind" identifier="unwindToPokerNextLevel" unwindAction="unwindToPokerNextLevel:" id="1bf-c2-j1q"/>
-                        <segue destination="JCb-1d-z2b" kind="unwind" identifier="unwindToQuitColorGame" unwindAction="unwindToQuitColorGame:" id="mQV-DZ-eAg"/>
-                        <segue destination="JCb-1d-z2b" kind="unwind" identifier="unwindToRetryDriftBall" unwindAction="unwindToRetryDriftBall:" id="MBo-1J-Dbk"/>
-                        <segue destination="JCb-1d-z2b" kind="unwind" identifier="unwindToResetDriftBall" unwindAction="unwindToResetDriftBall:" id="BfI-ze-ofU"/>
-                        <segue destination="JCb-1d-z2b" kind="unwind" identifier="unwindToQuitDriftBall" unwindAction="unwindToQuitDriftBall:" id="aQd-hu-dlE"/>
-                        <segue destination="JCb-1d-z2b" kind="unwind" identifier="unwindToNextDriftBall" unwindAction="unwindToNextDriftBall:" id="es9-Xo-DMi"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dsd-48-QnV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="JCb-1d-z2b" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="1087" y="495"/>
-        </scene>
-        <!--Gameover View Controller-->
-        <scene sceneID="Q8O-8r-J6R">
-            <objects>
-                <viewController storyboardIdentifier="GameoverController" id="bl7-k9-KQ6" customClass="GameoverViewController" customModule="NPD_Game" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="yoU-Ph-B1x">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gameover" id="gpJ-DX-YYa">
-                                <rect key="frame" x="0.0" y="126" width="320" height="232"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="mGameover" destination="gpJ-DX-YYa" id="RTu-wV-b1m"/>
-                        <segue destination="S0d-ah-ikX" kind="unwind" identifier="Segue_Gameover" unwindAction="unwindToQuit:" id="w1p-ga-MJ3"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mmM-XT-nR7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="S0d-ah-ikX" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="1507" y="495"/>
-        </scene>
         <!--Pipe Game View Controller-->
         <scene sceneID="Z6R-Mz-sGQ">
             <objects>
@@ -257,7 +257,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message Bar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YON-wl-uX6">
                                 <rect key="frame" x="16" y="20" width="288" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="0.28452211620000001" green="0.99607843159999998" blue="0.061806250360000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -367,9 +367,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eSZ-lL-wGA" userLabel="Quit">
-                                <rect key="frame" x="300" y="0.0" width="20" height="20"/>
+                                <rect key="frame" x="16" y="446" width="288" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="cancel">
+                                <state key="normal" title="Quit" backgroundImage="buttonbg">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -600,7 +600,7 @@
     </scenes>
     <resources>
         <image name="DriftBall" width="48" height="48"/>
-        <image name="cancel" width="600" height="600"/>
+        <image name="buttonbg" width="738" height="122"/>
         <image name="circleBg" width="512" height="512"/>
         <image name="game1_btn" width="250" height="133"/>
         <image name="game2_btn" width="250" height="133"/>
@@ -608,11 +608,9 @@
         <image name="game4_btn" width="250" height="133"/>
         <image name="game5_btn" width="250" height="133"/>
         <image name="game6_btn" width="250" height="133"/>
-        <image name="gameover" width="800" height="480"/>
         <image name="login_bg" width="360" height="480"/>
         <image name="login_btn" width="266" height="100"/>
         <image name="menubg" width="433" height="650"/>
-        <image name="nextlevel" width="210" height="130"/>
         <image name="pipefinger" width="35" height="35"/>
         <image name="pipegame_level1" width="640" height="975"/>
         <image name="register" width="224" height="40"/>

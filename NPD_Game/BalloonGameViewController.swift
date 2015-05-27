@@ -51,7 +51,7 @@ class BalloonGameViewController: UIViewController
     
     override func viewDidAppear(animated: Bool)
     {
-        startGame()
+  //      startGame()
     }
     
     func updateMessageLabel()
@@ -75,35 +75,37 @@ class BalloonGameViewController: UIViewController
         }
     }
     
-    func setGameLevel(level: Int)
-    {
-        currentlevel = level
-    }
+//    func setGameLevel(level: Int)
+//    {
+//        currentlevel = level
+//    }
     
-    func startGame()
-    {
-        switch (currentlevel)
-        {
-        case 1:
-            startLevel1()
-        case 2:
-            startLevel2()
-        case 3:
-            startLevel3()
-        case 4:
-            startLevel4()
-        case 5:
-            startLevel5()
-        case 6:
-            startLevel6()
-        default:
-            break
-        }
-
-    }
-    
+//    func startGame()
+//    {
+//        switch (currentlevel)
+//        {
+//        case 1:
+//            startLevel1()
+//        case 2:
+//            startLevel2()
+//        case 3:
+//            startLevel3()
+//        case 4:
+//            startLevel4()
+//        case 5:
+//            startLevel5()
+//        case 6:
+//            startLevel6()
+//        default:
+//            break
+//        }
+//
+//    }
+//    
     func startLevel1()
     {
+        currentlevel = 1
+        
         self.timeSpan = 3.0;        // 3 second
         self.flyingDuration = 10.0  // 10 seconds
         self.counter = 0            // initialize counter to be zero
@@ -119,6 +121,8 @@ class BalloonGameViewController: UIViewController
     
     func startLevel2()
     {
+        currentlevel = 2
+        
         self.timeSpan = 2.0;
         self.flyingDuration = 8.0
         self.counter = 0
@@ -136,6 +140,8 @@ class BalloonGameViewController: UIViewController
     
     func startLevel3()
     {
+        currentlevel = 3
+        
         self.timeSpan = 1.5;
         self.flyingDuration = 6.0
         self.counter = 0
@@ -153,6 +159,8 @@ class BalloonGameViewController: UIViewController
     
     func startLevel4()
     {
+        currentlevel = 4
+        
         self.timeSpan = 1.0;
         self.flyingDuration = 6.0
         self.counter = 0
@@ -170,6 +178,8 @@ class BalloonGameViewController: UIViewController
     
     func startLevel5()
     {
+        currentlevel = 5
+        
         self.timeSpan = 1.0;
         self.flyingDuration = 5.0
         self.counter = 0
@@ -187,6 +197,8 @@ class BalloonGameViewController: UIViewController
     
     func startLevel6()
     {
+        currentlevel = 6
+        
         self.timeSpan = 1.0;
         self.flyingDuration = 4.0
         self.counter = 0
@@ -237,9 +249,9 @@ class BalloonGameViewController: UIViewController
                         self.gameFinished = true
                         self.timer?.invalidate()
                     
-                        var popup = self.storyboard?.instantiateViewControllerWithIdentifier("PopupController") as! PopupViewController;
+                        var popup = self.storyboard?.instantiateViewControllerWithIdentifier("NotificationController") as! NotificationViewController;
                         self.presentViewController(popup, animated: false, completion: nil)
-                        popup.showBalloonGameover()
+                        popup.showBalloonGameOver()
                     }
                 }
             })
@@ -277,17 +289,6 @@ class BalloonGameViewController: UIViewController
         }
     }
     
-    @IBAction func unwindToQuitBalloon(segue: UIStoryboardSegue)
-    {
-        self.dismissViewControllerAnimated(false, completion: nil)
-    }
-    
-    @IBAction func unwindToBalloonNextLevel(segue: UIStoryboardSegue)
-    {
-        currentlevel += 1
-        startGame()
-    }
-    
     /*
      * when touched down, use hitTest to find out which balloon is eventually tapped, if there is one tapped,
      * make it highlight.
@@ -322,9 +323,9 @@ class BalloonGameViewController: UIViewController
                 self.gameFinished = true    // have to set game to be finished status, otherwise, the residual balloons will incure 'gameover' view popupped up
                 timer?.invalidate()
                 
-                var popup = self.storyboard?.instantiateViewControllerWithIdentifier("PopupController") as! PopupViewController;
+                var popup = self.storyboard?.instantiateViewControllerWithIdentifier("NotificationController") as! NotificationViewController;
                 self.presentViewController(popup, animated: false, completion: nil)
-                popup.showBalloonGameover()
+                popup.showBalloonGameOver()
             }
             else
             {
@@ -337,14 +338,51 @@ class BalloonGameViewController: UIViewController
                     self.gameFinished = true    // have to set game to be finished status, otherwise, the residual balloons will incure 'gameover' view popupped up
                     timer?.invalidate()
                 
-                    var popup = self.storyboard?.instantiateViewControllerWithIdentifier("PopupController") as! PopupViewController;
+                    var popup = self.storyboard?.instantiateViewControllerWithIdentifier("NotificationController") as! NotificationViewController;
                     self.presentViewController(popup, animated: false, completion: nil)
-                    popup.showBalloonNextLevel()
+                    
+                    if (currentlevel < 6)   // has more level to play.
+                    {
+                        popup.showBalloonGameNextLevel()
+                    }
+                    else                    // no more level to play.
+                    {
+                        popup.showBalloonGameWin()
+                    }
+                    
                     
                     clearBalloon()  // clear all residual balloons that are still flying on the screen when the game is finished
                 }
             }
         }
+    }
+    
+    @IBAction func unwindBalloonGameQuit(segue: UIStoryboardSegue)
+    {
+        self.dismissViewControllerAnimated(false, completion: nil)
+    }
+    
+    @IBAction func unwindBalloonGameNextLevel(segue: UIStoryboardSegue)
+    {
+        switch (currentlevel)
+        {
+        case 1:
+            startLevel2()
+        case 2:
+            startLevel3()
+        case 3:
+            startLevel4()
+        case 4:
+            startLevel5()
+        case 5:
+            startLevel6()
+        default:
+            break
+        }
+
+        
+//        currentlevel += 1
+//        startGame()
     }
     
     override func didReceiveMemoryWarning()
