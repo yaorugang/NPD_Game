@@ -216,10 +216,6 @@ class DriftBallViewController: UIViewController
         {
             startGame(currentLevel + 1)
         }
-//        else
-//        {
-//            self.dismissViewControllerAnimated(false, completion: nil)  // no more level, quit the game.
-//        }
     }
 
     @IBAction func unwindDriftGameQuit(segue: UIStoryboardSegue)
