@@ -232,6 +232,8 @@ class PokerGameViewController: UIViewController
                 var popup = self.storyboard?.instantiateViewControllerWithIdentifier("NotificationController") as! NotificationViewController;
                 self.presentViewController(popup, animated: false, completion: nil)
                 popup.showPokerGameReset()
+                
+                saveGameRecord()
             }
         }
     }
@@ -269,6 +271,27 @@ class PokerGameViewController: UIViewController
              break
         }
         
+    }
+    
+    func saveGameRecord()
+    {
+        var gameInfo = GameInfo()
+        gameInfo.pid = gGameUser.id
+        gameInfo.gid = 5
+        gameInfo.level = currentLevel + 1
+        gameInfo.time = 0
+        gameInfo.score = (currentLevel + 1) * 20 + (currentSublevel + 1) * 10
+        gameInfo.percent = 0
+        gameInfo.accuracy = 0
+        
+        if (gGameDBAdapter.insertGameRecord(gameInfo))
+        {
+            println("insert succeed!")
+        }
+        else
+        {
+            println("insert failed!")
+        }
     }
     
     @IBAction func unwindPokerGameQuit(segue: UIStoryboardSegue)

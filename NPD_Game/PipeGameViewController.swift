@@ -17,11 +17,13 @@ class PipeGameViewController: UIViewController
     @IBOutlet weak var mFingerPoint: UIImageView!
     @IBOutlet weak var textView: UILabel!
     @IBOutlet weak var backgroundImg: UIImageView!
+    @IBOutlet weak var patientLabel: UILabel!
     
     var mValidFinger: Bool = false  // used for identifing whether pressed position is valid
     var mStartPoint: CGPoint?
     var mStartFrame: CGRect?
     var mTimeInterval = NSTimeInterval()    // recording start time
+    var mTimePassed: Int = 0                // how much time spent
     var timer = NSTimer()           // used for time counting
     var currentLevel = 1
     var currentPath: CGMutablePathRef?
@@ -31,8 +33,8 @@ class PipeGameViewController: UIViewController
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.None)
+        patientLabel.text = gGameUser.name
+  //      UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.None)
         
         initPath()
         
@@ -53,10 +55,10 @@ class PipeGameViewController: UIViewController
     
     func updateTime()
     {
-        var timeInterval = Int(NSDate.timeIntervalSinceReferenceDate() - mTimeInterval)
+        mTimePassed = Int(NSDate.timeIntervalSinceReferenceDate() - mTimeInterval)
         
-        var second = timeInterval % 60
-        var minutes = timeInterval / 60
+        var second = mTimePassed % 60
+        var minutes = mTimePassed / 60
         var hour = 0
         
         if (minutes > 59)
@@ -192,6 +194,7 @@ class PipeGameViewController: UIViewController
                         popup.showPipeGameWin()
                     }
                     
+                    saveGameRecord()
                 }
                 else
                 {
@@ -322,6 +325,27 @@ class PipeGameViewController: UIViewController
         
         textView.text = "Time: 00:00:00"
         startTimer()
+    }
+    
+    func saveGameRecord()
+    {
+        var gameInfo = GameInfo()
+        gameInfo.pid = gGameUser.id
+        gameInfo.gid = 1
+        gameInfo.level = currentLevel
+        gameInfo.time = mTimePassed
+        gameInfo.score = 300
+        gameInfo.percent = 1000
+        gameInfo.accuracy = 0
+        
+        if (gGameDBAdapter.insertGameRecord(gameInfo))
+        {
+            println("insert succeed!")
+        }
+        else
+        {
+            println("insert failed!")
+        }
     }
     
     @IBAction func unwindPipeGameQuit(segue: UIStoryboardSegue)

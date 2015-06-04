@@ -51,7 +51,7 @@ class BalloonGameViewController: UIViewController
     
     override func viewDidAppear(animated: Bool)
     {
-  //      startGame()
+
     }
     
     func updateMessageLabel()
@@ -75,33 +75,6 @@ class BalloonGameViewController: UIViewController
         }
     }
     
-//    func setGameLevel(level: Int)
-//    {
-//        currentlevel = level
-//    }
-    
-//    func startGame()
-//    {
-//        switch (currentlevel)
-//        {
-//        case 1:
-//            startLevel1()
-//        case 2:
-//            startLevel2()
-//        case 3:
-//            startLevel3()
-//        case 4:
-//            startLevel4()
-//        case 5:
-//            startLevel5()
-//        case 6:
-//            startLevel6()
-//        default:
-//            break
-//        }
-//
-//    }
-//    
     func startLevel1()
     {
         currentlevel = 1
@@ -111,6 +84,7 @@ class BalloonGameViewController: UIViewController
         self.counter = 0            // initialize counter to be zero
         self.eligible_count = 5     // number of balloon required to be tapped
         self.prohibitedTag = -1     // -1 indicates none balloon to be prohibited
+        self.gameFinished = false
         
         updateMessageLabel()
         
@@ -127,6 +101,7 @@ class BalloonGameViewController: UIViewController
         self.flyingDuration = 8.0
         self.counter = 0
         self.eligible_count = 5
+        self.gameFinished = false
         
         var balloonList = [balloon_red!, balloon_green!]
         
@@ -146,6 +121,7 @@ class BalloonGameViewController: UIViewController
         self.flyingDuration = 6.0
         self.counter = 0
         self.eligible_count = 5
+        self.gameFinished = false
         
         var balloonList = [balloon_red!, balloon_green!, balloon_blue!]
         
@@ -165,6 +141,7 @@ class BalloonGameViewController: UIViewController
         self.flyingDuration = 6.0
         self.counter = 0
         self.eligible_count = 5
+        self.gameFinished = false
         
         var balloonList = [balloon_red!, balloon_green!, balloon_blue!, balloon_orange!]
         
@@ -184,6 +161,7 @@ class BalloonGameViewController: UIViewController
         self.flyingDuration = 5.0
         self.counter = 0
         self.eligible_count = 5
+        self.gameFinished = false
         
         var balloonList = [balloon_red!, balloon_green!, balloon_blue!, balloon_orange!, balloon_pink!]
         
@@ -203,6 +181,7 @@ class BalloonGameViewController: UIViewController
         self.flyingDuration = 4.0
         self.counter = 0
         self.eligible_count = 5
+        self.gameFinished = false
         
         var balloonList = [balloon_red!, balloon_green!, balloon_blue!, balloon_orange!, balloon_pink!, balloon_yellow!]
         
@@ -350,6 +329,7 @@ class BalloonGameViewController: UIViewController
                         popup.showBalloonGameWin()
                     }
                     
+                    saveGameRecord()
                     
                     clearBalloon()  // clear all residual balloons that are still flying on the screen when the game is finished
                 }
@@ -379,11 +359,29 @@ class BalloonGameViewController: UIViewController
         default:
             break
         }
-
-        
-//        currentlevel += 1
-//        startGame()
     }
+    
+    func saveGameRecord()
+    {
+        var gameInfo = GameInfo()
+        gameInfo.pid = gGameUser.id
+        gameInfo.gid = 3
+        gameInfo.level = currentlevel
+        gameInfo.time = 0
+        gameInfo.score = 0
+        gameInfo.percent = 0
+        gameInfo.accuracy = 0
+        
+        if (gGameDBAdapter.insertGameRecord(gameInfo))
+        {
+            println("insert succeed!")
+        }
+        else
+        {
+            println("insert failed!")
+        }
+    }
+
     
     override func didReceiveMemoryWarning()
     {

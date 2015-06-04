@@ -196,9 +196,32 @@ class DriftBallViewController: UIViewController
             var popup = self.storyboard?.instantiateViewControllerWithIdentifier("NotificationController") as! NotificationViewController;
             self.presentViewController(popup, animated: false, completion: nil)
             popup.showDriftGameOver(20 - timeLimit)
+            
+            saveGameRecord()
         }
-        
     }
+    
+    func saveGameRecord()
+    {
+        var gameInfo = GameInfo()
+        gameInfo.pid = gGameUser.id
+        gameInfo.gid = 2
+        gameInfo.level = currentLevel
+        gameInfo.time = 20 - Int(timeLimit) + currentLevel * 20
+        gameInfo.score = 0
+        gameInfo.percent = 0
+        gameInfo.accuracy = 0
+        
+        if (gGameDBAdapter.insertGameRecord(gameInfo))
+        {
+            println("insert succeed!")
+        }
+        else
+        {
+            println("insert failed!")
+        }
+    }
+    
     
     @IBAction func unwindDriftGameReset(segue: UIStoryboardSegue)
     {

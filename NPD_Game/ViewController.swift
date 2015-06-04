@@ -8,9 +8,15 @@
 
 import UIKit
 
+var gGameUser = User()
+let gGameDBAdapter = DBAdapter()
+
 class ViewController: UIViewController
 {
-
+    
+    
+    @IBOutlet weak var usernameEdit: UITextField!
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -24,6 +30,15 @@ class ViewController: UIViewController
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func Login(sender: AnyObject)
+    {
+        gGameDBAdapter.checkUser(usernameEdit.text, user: &gGameUser)
+        
+        if (gGameUser.id > 0)
+        {
+            performSegueWithIdentifier("segueToMenuView", sender: sender)
+        }
+    }
 
 }
 

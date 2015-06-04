@@ -203,60 +203,6 @@ class NotificationViewController: UIViewController
         mQuitButton.addTarget(self, action: "performSegue:", forControlEvents: UIControlEvents.TouchUpInside)
     }
     
-//    func showBreakoutGameRetry()
-//    {
-//        mMessageLabel.text = "You have one more life to try."
-//        
-//        mResetButton.hidden = true
-//        
-//        mRetryButton.tag = 13
-//        mRetryButton.addTarget(self, action: "performSegue:", forControlEvents: UIControlEvents.TouchUpInside)
-//        
-//        mNextLevelButton.hidden = true
-//        
-//        mQuitButton.tag = 15
-//        mQuitButton.addTarget(self, action: "performSegue:", forControlEvents: UIControlEvents.TouchUpInside)
-//    }
-//    
-//    func showBreakoutGameNextLevel()
-//    {
-//        mMessageLabel.text = "You can go to the next level."
-//        
-//        mResetButton.hidden = true
-//        mRetryButton.hidden = true
-//        
-//        mNextLevelButton.tag = 14
-//        mNextLevelButton.addTarget(self, action: "performSegue:", forControlEvents: UIControlEvents.TouchUpInside)
-//        
-//        mQuitButton.tag = 15
-//        mQuitButton.addTarget(self, action: "performSegue:", forControlEvents: UIControlEvents.TouchUpInside)
-//    }
-//    
-//    func showBreakoutGameWin()
-//    {
-//        mMessageLabel.text = "Congratulations!\nYour win!"
-//        
-//        mResetButton.hidden = true
-//        mRetryButton.hidden = true
-//        mNextLevelButton.hidden = true
-//        
-//        mQuitButton.tag = 15
-//        mQuitButton.addTarget(self, action: "performSegue:", forControlEvents: UIControlEvents.TouchUpInside)
-//    }
-//
-//    func showBreakoutGameOver()
-//    {
-//        mMessageLabel.text = "Fail!"
-//        
-//        mResetButton.hidden = true
-//        mRetryButton.hidden = true
-//        mNextLevelButton.hidden = true
-//        
-//        mQuitButton.tag = 15
-//        mQuitButton.addTarget(self, action: "performSegue:", forControlEvents: UIControlEvents.TouchUpInside)
-//    }
-    
-    
     func performSegue(sender: UIButton)
     {
         switch (sender.tag)
@@ -285,12 +231,6 @@ class NotificationViewController: UIViewController
             performSegueWithIdentifier("unwindDriftGameNextLevel", sender: sender)
         case 12:    // drift game quit
             performSegueWithIdentifier("unwindDriftGameQuit", sender: sender)
-//        case 13:    // breakout game retry
-//            performSegueWithIdentifier("unwindBreakoutGameRetry", sender: sender)
-//        case 14:    // breakout game next level
-//            performSegueWithIdentifier("unwindBreakoutGameNextLevel", sender: sender)
-//        case 15:    // breakout game quit
-//            performSegueWithIdentifier("unwindBreakoutGameQuit", sender: sender)
         default:
             break;
         }

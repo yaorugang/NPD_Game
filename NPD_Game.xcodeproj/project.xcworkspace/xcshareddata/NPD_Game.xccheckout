@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>03482A0D-7F85-469A-AB44-9D98EE9FD27C</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>NPD_Game</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>F3521F95CF70FCA3B2130421E7DF6648581C1A5B</key>
 		<string>https://github.com/yaorugang/NPD_Game.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>NPD_Game.xcodeproj/project.xcworkspace</string>
+	<string>NPD_Game.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>F3521F95CF70FCA3B2130421E7DF6648581C1A5B</key>

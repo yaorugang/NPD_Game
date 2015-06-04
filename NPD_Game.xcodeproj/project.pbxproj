@@ -23,6 +23,8 @@
 		5F820DF11A84C57700D3EE57 /* NPD_GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F820DF01A84C57700D3EE57 /* NPD_GameTests.swift */; };
 		5F8FE6B81AB1C67A005E7F26 /* BalloonLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8FE6B71AB1C67A005E7F26 /* BalloonLevelViewController.swift */; };
 		5F9592D61ADFB7C400461C6D /* PokerGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9592D51ADFB7C400461C6D /* PokerGameViewController.swift */; };
+		5FB0BDAD1B1D91FF00AEFD22 /* DBAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB0BDAC1B1D91FF00AEFD22 /* DBAdapter.swift */; };
+		5FB0BDAF1B1DB4C300AEFD22 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB0BDAE1B1DB4C300AEFD22 /* User.swift */; };
 		5FD827991B007C7000CDB00D /* DriftBallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD827981B007C7000CDB00D /* DriftBallViewController.swift */; };
 		8B9776391AEE17EE00F1E4C7 /* ColorGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9776381AEE17EE00F1E4C7 /* ColorGameViewController.swift */; };
 /* End PBXBuildFile section */
@@ -58,6 +60,8 @@
 		5F820DF01A84C57700D3EE57 /* NPD_GameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPD_GameTests.swift; sourceTree = "<group>"; };
 		5F8FE6B71AB1C67A005E7F26 /* BalloonLevelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalloonLevelViewController.swift; sourceTree = "<group>"; };
 		5F9592D51ADFB7C400461C6D /* PokerGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokerGameViewController.swift; sourceTree = "<group>"; };
+		5FB0BDAC1B1D91FF00AEFD22 /* DBAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBAdapter.swift; sourceTree = "<group>"; };
+		5FB0BDAE1B1DB4C300AEFD22 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5FD827981B007C7000CDB00D /* DriftBallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriftBallViewController.swift; sourceTree = "<group>"; };
 		8B9776381AEE17EE00F1E4C7 /* ColorGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorGameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,6 +171,8 @@
 				5F3440851A87148A006B2B64 /* MenuViewController.swift */,
 				5F3B56241A8E1A5500F74FDD /* GameoverViewController.swift */,
 				5F4E0C231B1083B7001177C8 /* NotificationViewController.swift */,
+				5FB0BDAC1B1D91FF00AEFD22 /* DBAdapter.swift */,
+				5FB0BDAE1B1DB4C300AEFD22 /* User.swift */,
 			);
 			path = NPD_Game;
 			sourceTree = "<group>";
@@ -306,9 +312,11 @@
 				5F4E4B711AB1B0E100D826F8 /* BalloonGameViewController.swift in Sources */,
 				5F3B56251A8E1A5500F74FDD /* GameoverViewController.swift in Sources */,
 				5F3440881A8729B7006B2B64 /* PipeGameViewController.swift in Sources */,
+				5FB0BDAF1B1DB4C300AEFD22 /* User.swift in Sources */,
 				5F2C8FA71B0B19CC0087CD76 /* GameScene.swift in Sources */,
 				5F9592D61ADFB7C400461C6D /* PokerGameViewController.swift in Sources */,
 				5F4E0C241B1083B7001177C8 /* NotificationViewController.swift in Sources */,
+				5FB0BDAD1B1D91FF00AEFD22 /* DBAdapter.swift in Sources */,
 				5F820DDB1A84C57600D3EE57 /* AppDelegate.swift in Sources */,
 				5FD827991B007C7000CDB00D /* DriftBallViewController.swift in Sources */,
 			);

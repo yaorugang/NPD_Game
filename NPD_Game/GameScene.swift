@@ -90,6 +90,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         mPaddleLengthRate = 3
         mNext = 800
         mLevel = 1
+        mScore = 0
         
         presentObjects()
         updateDashboard()
@@ -101,6 +102,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         mPaddleLengthRate = 2
         mNext = 1600
         mLevel = 2
+        mScore = 0
         
         presentObjects()
         updateDashboard()
@@ -342,5 +344,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate
     {
         let quitButton = self.view!.superview!.viewWithTag(10) as! UIButton
         quitButton.hidden = false
+        
+        saveGameRecord()
+    }
+    
+    func saveGameRecord()
+    {
+        var gameInfo = GameInfo()
+        gameInfo.pid = gGameUser.id
+        gameInfo.gid = 4
+        gameInfo.level = mCurrentLevel
+        gameInfo.time = 0
+        gameInfo.score = mHighestScore
+        gameInfo.percent = 0
+        gameInfo.accuracy = 0
+        
+        if (gGameDBAdapter.insertGameRecord(gameInfo))
+        {
+            println("insert succeed!")
+        }
+        else
+        {
+            println("insert failed!")
+        }
     }
 }

@@ -178,7 +178,31 @@ class ColorGameViewController: UIViewController
         var popup = self.storyboard?.instantiateViewControllerWithIdentifier("NotificationController") as! NotificationViewController;
         self.presentViewController(popup, animated: false, completion: nil)
         popup.showColorGameOver(currentScore)
+        
+        saveGameRecord()
     }
+    
+    func saveGameRecord()
+    {
+        var gameInfo = GameInfo()
+        gameInfo.pid = gGameUser.id
+        gameInfo.gid = 6
+        gameInfo.level = 1
+        gameInfo.time = 0
+        gameInfo.score = currentScore
+        gameInfo.percent = 0
+        gameInfo.accuracy = 0
+        
+        if (gGameDBAdapter.insertGameRecord(gameInfo))
+        {
+            println("insert succeed!")
+        }
+        else
+        {
+            println("insert failed!")
+        }
+    }
+
     
     @IBAction func unwindColorGameQuit(segue: UIStoryboardSegue)
     {
