@@ -65,6 +65,12 @@ class BreakoutViewController: UIViewController
         nextLevelButton.tag     = 9
         quitButton.tag          = 10
         
+        
+        
+    }
+    
+    override func viewDidAppear(animated: Bool)
+    {
         // Configure the view.
         let skView = SKView(frame: CGRectMake(0, 0, view.frame.width - dashboardView.frame.width, view.frame.height))
         self.view.addSubview(skView)
@@ -76,33 +82,32 @@ class BreakoutViewController: UIViewController
         
         /* Set the scale mode to scale to fit the window */
         scene!.scaleMode = SKSceneScaleMode.Fill
-    
-        skView.presentScene(scene)
-
+        
         // set three buttons
         self.view.bringSubviewToFront(retryButton)
         self.view.bringSubviewToFront(nextLevelButton)
         self.view.bringSubviewToFront(quitButton)
         dismissButtons()
         
+        skView.presentScene(scene)
     }
     
-    override func shouldAutorotate() -> Bool
-    {
-        return true
-    }
-    
-    override func supportedInterfaceOrientations() -> Int
-    {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Phone
-        {
-            return Int(UIInterfaceOrientationMask.AllButUpsideDown.rawValue)
-        }
-        else
-        {
-            return Int(UIInterfaceOrientationMask.All.rawValue)
-        }
-    }
+//    override func shouldAutorotate() -> Bool
+//    {
+//        return true
+//    }
+//    
+//    override func supportedInterfaceOrientations() -> Int
+//    {
+//        if UIDevice.currentDevice().userInterfaceIdiom == .Phone
+//        {
+//            return Int(UIInterfaceOrientationMask.AllButUpsideDown.rawValue)
+//        }
+//        else
+//        {
+//            return Int(UIInterfaceOrientationMask.All.rawValue)
+//        }
+//    }
     
     override func didReceiveMemoryWarning()
     {
@@ -153,5 +158,15 @@ class BreakoutViewController: UIViewController
     @IBAction func performQuit(sender: AnyObject)
     {
         self.dismissViewControllerAnimated(false, completion: nil)
+    }
+    
+    override func shouldAutorotate() -> Bool
+    {
+        return true
+    }
+    
+    override func supportedInterfaceOrientations() -> Int
+    {
+        return Int(UIInterfaceOrientationMask.LandscapeLeft.rawValue) | Int(UIInterfaceOrientationMask.LandscapeRight.rawValue)
     }
 }

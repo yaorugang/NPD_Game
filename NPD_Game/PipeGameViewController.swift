@@ -104,8 +104,8 @@ class PipeGameViewController: UIViewController
         CGPathMoveToPoint(path_level2, nil, 0, 750 * ratio_y)
         CGPathAddLineToPoint(path_level2, nil, 208 * ratio_x, 750 * ratio_y)
         CGPathAddLineToPoint(path_level2, nil, 208 * ratio_x, 435 * ratio_y)
-        CGPathAddLineToPoint(path_level2, nil, 536 * ratio_x, 435 * ratio_y)
-        CGPathAddLineToPoint(path_level2, nil, 536 * ratio_x, 537 * ratio_y)
+        CGPathAddLineToPoint(path_level2, nil, 540 * ratio_x, 433 * ratio_y)
+        CGPathAddLineToPoint(path_level2, nil, 546 * ratio_x, 527 * ratio_y)
         CGPathAddLineToPoint(path_level2, nil, 639 * ratio_x, 537 * ratio_y)
         CGPathAddLineToPoint(path_level2, nil, 639 * ratio_x, 647 * ratio_y)
         CGPathAddLineToPoint(path_level2, nil, 426 * ratio_x, 645 * ratio_y)
@@ -123,8 +123,8 @@ class PipeGameViewController: UIViewController
         CGPathAddLineToPoint(path_level3, nil, 322 * ratio_x, 747 * ratio_y)
         CGPathAddLineToPoint(path_level3, nil, 422 * ratio_x, 747 * ratio_y)
         CGPathAddLineToPoint(path_level3, nil, 424 * ratio_x, 643 * ratio_y)
-        CGPathAddLineToPoint(path_level3, nil, 532 * ratio_x, 643 * ratio_y)
-        CGPathAddLineToPoint(path_level3, nil, 532 * ratio_x, 543 * ratio_y)
+        CGPathAddLineToPoint(path_level3, nil, 526 * ratio_x, 633 * ratio_y)
+        CGPathAddLineToPoint(path_level3, nil, 526 * ratio_x, 549 * ratio_y)
         CGPathAddLineToPoint(path_level3, nil, 312 * ratio_x, 537 * ratio_y)
         CGPathAddLineToPoint(path_level3, nil, 310 * ratio_x, 333 * ratio_y)
         CGPathAddLineToPoint(path_level3, nil, 426 * ratio_x, 333 * ratio_y)
@@ -139,7 +139,9 @@ class PipeGameViewController: UIViewController
         CGPathAddLineToPoint(path_level3, nil, 96 * ratio_x, 541 * ratio_y)
         CGPathAddLineToPoint(path_level3, nil, 0, 541 * ratio_y)
         CGPathCloseSubpath(path_level3)
+        
     }
+    
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent)
     {
@@ -265,8 +267,8 @@ class PipeGameViewController: UIViewController
                 return false;
             }
         case 3:
-            var point_x = mFingerPoint.frame.origin.x
-            if (point_x <= 5)
+            var point_y = mFingerPoint.frame.origin.y
+            if (point_y < 335 * (self.view.bounds.size.height / 975))
             {
                 return true
             }
@@ -313,8 +315,8 @@ class PipeGameViewController: UIViewController
         case 3:
             currentPath = path_level3
             
-            frame.origin.x = 322 * ratio_x
-            frame.origin.y = 333 * ratio_y
+            frame.origin.x = 12 * ratio_x
+            frame.origin.y = 445 * ratio_y
             mFingerPoint.frame = frame
             
             backgroundImg.image = UIImage(named: "pipegame_level3")
@@ -360,6 +362,17 @@ class PipeGameViewController: UIViewController
             switchToLevel(currentLevel + 1)
         }
     }
+    
+    override func shouldAutorotate() -> Bool
+    {
+        return true
+    }
+    
+    override func supportedInterfaceOrientations() -> Int
+    {
+        return Int(UIInterfaceOrientationMask.Portrait.rawValue) | Int(UIInterfaceOrientationMask.PortraitUpsideDown.rawValue)
+    }
+    
     /*
     // MARK: - Navigation
 

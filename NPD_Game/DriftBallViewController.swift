@@ -257,6 +257,16 @@ class DriftBallViewController: UIViewController
         return true
     }
 
+    override func shouldAutorotate() -> Bool
+    {
+        return true
+    }
+    
+    override func supportedInterfaceOrientations() -> Int
+    {
+        return Int(UIInterfaceOrientationMask.Portrait.rawValue) | Int(UIInterfaceOrientationMask.PortraitUpsideDown.rawValue)
+    }
+    
     /*
     // MARK: - Navigation
 
