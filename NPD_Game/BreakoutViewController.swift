@@ -64,9 +64,6 @@ class BreakoutViewController: UIViewController
         retryButton.tag         = 8
         nextLevelButton.tag     = 9
         quitButton.tag          = 10
-        
-        
-        
     }
     
     override func viewDidAppear(animated: Bool)
@@ -91,23 +88,6 @@ class BreakoutViewController: UIViewController
         
         skView.presentScene(scene)
     }
-    
-//    override func shouldAutorotate() -> Bool
-//    {
-//        return true
-//    }
-//    
-//    override func supportedInterfaceOrientations() -> Int
-//    {
-//        if UIDevice.currentDevice().userInterfaceIdiom == .Phone
-//        {
-//            return Int(UIInterfaceOrientationMask.AllButUpsideDown.rawValue)
-//        }
-//        else
-//        {
-//            return Int(UIInterfaceOrientationMask.All.rawValue)
-//        }
-//    }
     
     override func didReceiveMemoryWarning()
     {
